@@ -1,0 +1,66 @@
+# Formato del nombre de fichero a generar
+FILENAME_PATTERN="%HOME%/%CAPTUREDIR%/Screenshot_%DATETIME%.png"
+
+# Directorio de capturas de pantalla (es un directorio adicional de configuración)
+CAPTUREDIR="Capturas"
+
+# Formatos de fecha y fecha y hora. Dejar en blanco si no se usa
+DATETIME_FORMAT="%d-%m-%Y-%H%M%S"
+DATE_FORMAT="%d-%m-%Y"
+TIME_FORMAT="%H%M%S"
+
+# Sobre la captura
+INCLUDE_CURSOR=yes
+BORDER_WIDTH=3
+BORDER_COLOR=0.1,0.6,0.7,0.5
+OTHER_OPTIONS=--mask=on
+#DEFAULT_DELAY_SECS=0
+
+# Sobre las notificaciones
+NOTIFY_GLYPH="%SCRIPTDIR%/img/camera.png"
+NOTIFY_BEFORE=yes
+NOTIFY_AFTER=yes
+NOTIFY_BEFORE_DELAY=3000
+NOTIFY_AFTER_DELAY=1000
+NOTIFY_EXPIRE_AFTER=1000
+
+# Insertar en documentos recientes
+USE_RECENTS=yes
+
+# Crear miniaturas
+MAKE_THUMBNAIL=yes
+MIN_IMAGE_WIDTH=100
+MIN_IMAGE_HEIGHT=100
+THUMBNAIL_SIZE=640
+THUMBNAIL_PATTERN="%HOME%/%THUMBNAILDIR%/Screenshot_%DATETIME%.png"
+THUMBNAILDIR=%CAPTUREDIR%/thumbnails
+
+# Metadatos
+APPEND_COMMENT="(%YEAR%) Screenshot by Gaspar Fernández https://poesiabinaria.net/"
+APPEND_COMMENT_THUMBNAILS="(%YEAR%) Thumbnail by Gaspar Fernández https://poesiabinaria.net/"
+
+# Resumen de últimas capturas
+SUMMARY_FILE=%HOME%/.gscreenshot_summary
+MAX_ENTRIES=2
+
+# Eventos. Son scripts o programas que se llamaran cuando se produzca una captura
+ON_BEFORE_CAPTURE=zenity --info --title "TIPO: %TYPE%" --text "PREVIO. El archivo es: %FILENAME%"
+ON_AFTER_CAPTURE=zenity --info --title "TIPO: %TYPE%" --text "DESPUES. El archivo es: %FILENAME%"
+ON_ERROR=zenity --info --title "ERROR" --text "ERROR: %MSG%"
+ON_CREATE_THUMBNAIL=zenity --info --title "TIPO: %TYPE%" --text "DESPUES. El archivo es: %FILENAME%"
+
+# Otros programas externos
+PROGRAM_EXTERNAL_PREVIEW=geeqie %FILENAME%
+PROGRAM_QUICK_EDIT=mtpaint %FILENAME%
+PROGRAM_EDIT=gimp %FILENAME%
+
+# Menú de acciones
+AM_WIDTH=800
+AM_HEIGHT=600
+AM_THUMBNAIL_WIDTH=175
+AM_THUMBNAIL_HEIGHT=175
+AM_THUMNBAIL_ASPECT=yes
+CACHE_DIRECTORY=%HOME%/.cache/gscreenshot
+
+# Otras opciones
+QR_DELETE_IMAGE=yes
